@@ -1,10 +1,10 @@
 import React,{ Component } from "react";
 import { connect } from "react-redux";
-import { getSearchData } from "../actions/index";
+import { initSearch } from "../actions/index";
 
 function mapDispatchToProps(dispatch) {
   return {
-    getSearchData: searchText => dispatch(getSearchData(searchText))
+    initSearch: searchText => dispatch(initSearch(searchText))
   };
 }
 
@@ -25,7 +25,7 @@ class Search extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { searchText } = this.state;
-    this.props.getSearchData({ searchText });
+    this.props.initSearch({ searchText });
   }
 
  
@@ -46,8 +46,8 @@ render() {
 			  <button
 				id="searchBtn" type="submit"
          className="col-sm-2 btn btn-success btn-lg"
-         
-   			   >
+         onClick= {this.handleSubmit}
+         >
 				Search
 			  </button>
 			 </div>

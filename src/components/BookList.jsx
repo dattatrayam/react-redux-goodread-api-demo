@@ -6,9 +6,19 @@ const mapStateToProps = state => {
 };
 const BookList = ({ searchResult }) => (
   <ul className="list-group list-group-flush">
-    {searchResult.map(el => (
-      <li className="list-group-item" key={el.id}>
-        {el.title}
+    {searchResult.map(book => (
+      <li className="list-group-item" key={book.id}>
+         <p
+            className="text-sm-left card-title font-weight-bold"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title={book.best_book.title}
+          >
+            {book.best_book.title}
+          </p>
+          <p className="text-sm-left card-text">
+            {book.best_book.author.name}
+          </p>
       </li>
     ))}
   </ul>
