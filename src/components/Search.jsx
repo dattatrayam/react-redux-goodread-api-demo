@@ -35,7 +35,7 @@ render() {
   return (
       <div className="form-group row">
 			  <input
-				className="mr-1 col-sm-9 form-control"
+				className="form-control"
 				type="text"
 				placeholder="Search Books by name"
 				name="searchText"
@@ -45,7 +45,7 @@ render() {
 			  />
 			  <button
 				id="searchBtn" type="submit"
-         className="col-sm-2 btn btn-success btn-lg"
+         className="btn btn-success btn-lg"
          onClick= {this.handleSubmit}
          >
 				Search

@@ -56,13 +56,7 @@ export function XMLToJson(XML) {
 
 
 
-export function searchDataLoaded(playload) {
-  console.log("searchDataLoaded"+playload)
-  
-
-  return { type: types.SEARCH_DATA_LOADED,playload };
-}
-export function showBookDetail(playload) {
+export function showSelectedBookDetail(playload) {
   return { type: types.SHOW_BOOK_DETAIL,playload };
 }
 export function getBookData(playload) {

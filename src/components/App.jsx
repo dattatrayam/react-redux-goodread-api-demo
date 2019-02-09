@@ -1,6 +1,7 @@
 import React from "react";
 import BookListComponent from "./BookList";
 import SearchComponent from "./Search";
+import BookDetailComponent from "./BookDetail"
 
 const App = () => (
     <div className="container">
@@ -9,7 +10,10 @@ const App = () => (
          <h3>Goodreads React Book Search Demo</h3>
          </div>
           <SearchComponent />
-          <BookListComponent />
+          <div className='rowC'>
+           <BookListComponent />
+          <BookDetailComponent />
+          </div>
     </div>
   </div>
 );
