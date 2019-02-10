@@ -2,12 +2,6 @@ import React,{ Component } from "react";
 import { connect } from "react-redux";
 import { initSearch } from "../actions/index";
 
-function mapDispatchToProps(dispatch) {
-  return {
-    initSearch: searchText => dispatch(initSearch(searchText))
-  };
-}
-
 class Search extends Component {
   constructor() {
     super();
@@ -50,9 +44,25 @@ render() {
          >
 				Search
 			  </button>
+        {this.props.searching ? (
+          <p className="lead text-center">{"loading... "}</p>
+        ) : ( <p></p>)}
 			 </div>
   );
 }
 }
-const SearchComponent = connect(null,mapDispatchToProps)(Search);
+
+function mapDispatchToProps(dispatch) {
+  return {
+    initSearch: searchText => dispatch(initSearch(searchText))
+  };
+}
+
+const mapStateToProps = state => {
+  return { 
+    searching: state.searching
+   };
+};
+
+const SearchComponent = connect(mapStateToProps,mapDispatchToProps)(Search);
 export default SearchComponent;

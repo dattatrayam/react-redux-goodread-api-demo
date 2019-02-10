@@ -8,8 +8,8 @@ class BookDetail extends Component {
                 return (<div></div>)
         }
 		return (
-			<div className="row col-lg-12">
-			<div className="col-lg-3 col-sm-8 mb-3 mt-3">
+			<div>
+				<div>
 				  <img
 					src={this.props.bookData.best_book.image_url}
 					height="200px"
@@ -17,8 +17,8 @@ class BookDetail extends Component {
 					alt="cover"
 				  />
 			 </div>
-			 <div className="col-lg-9 col-sm-8">
-				<h3 className="col-lg-9 mb-3 mt-3">{this.props.bookData.best_book.title}</h3>
+			 <div>
+				<h3 className="mb-3 mt-3">{this.props.bookData.best_book.title}</h3>
 				 <p className="mb-3 mt-3">
 					By:{" "}
 					<span className="font-weight-bold">
@@ -26,7 +26,7 @@ class BookDetail extends Component {
 					</span>
 			   </p>
 				<div className="row">
-				<div className="col-md-3">
+				<div>
 					<StarRatings
 					  rating={Number(this.props.bookData.average_rating)}
 					  starRatedColor="orange"
@@ -40,7 +40,7 @@ class BookDetail extends Component {
 					{this.props.bookData.average_rating}
 					</span>
 				 </div>
-				 <div className="col-md-8">
+				 <div>
 					<span className="rating ml-1 mt-3">
 					  Rating Details: {this.props.bookData.ratings_count} Ratings , {this.props.bookData.text_reviews_count} Reviews 
 					</span>

@@ -26,6 +26,19 @@ export function startSearch(playload) {
   };
 }
 
+export function showSelectedBookDetail(playload) {
+  return { type: types.SHOW_BOOK_DETAIL,playload };
+}
+export function getBookData(playload) {
+  return { type: types.FETCH_BOOK_DATA,playload };
+}
+export function bookDataLoaded(playload) {
+  return { type: types.BOOK_DATA_LOADED,playload };
+}
+export function addArticle(payload) {
+  return { type: types.ADD_ARTICLE, payload };
+}
+
 export function parseXMLResponse (response) {
   console.log("response:"+response)
   const parser = new DOMParser();
@@ -53,20 +66,4 @@ export function XMLToJson(XML) {
   });
   return jsonResult;
 }
-
-
-
-export function showSelectedBookDetail(playload) {
-  return { type: types.SHOW_BOOK_DETAIL,playload };
-}
-export function getBookData(playload) {
-  return { type: types.FETCH_BOOK_DATA,playload };
-}
-export function bookDataLoaded(playload) {
-  return { type: types.BOOK_DATA_LOADED,playload };
-}
-export function addArticle(payload) {
-  return { type: types.ADD_ARTICLE, payload };
-}
-
 

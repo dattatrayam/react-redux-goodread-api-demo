@@ -5,17 +5,18 @@ import BookDetailComponent from "./BookDetail"
 
 const App = () => (
     <div className="container">
-    <div className="container-body">
-         <div className="header">
-         <h3>Goodreads React Book Search Demo</h3>
-         </div>
-          <SearchComponent />
-          <div className='rowC'>
-           <BookListComponent />
-          <BookDetailComponent />
-          </div>
+      <div className="header">
+      <h3>React-Redux-Redux-Thunk GoodReads API APP</h3>
+      </div>
+      <div>
+      <SearchComponent />
+      <div className='rowcolumn'>
+        <BookListComponent />
+      <BookDetailComponent />
+      </div>
+      </div>
     </div>
-  </div>
+  
 );
 export default App;
 
