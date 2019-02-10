@@ -33,10 +33,12 @@ This project was bootstrapped with `create-react-app` and deployed live at https
 2. Clicking on book item in list it show book details, ratings, description of the book
 
 ## UI Component Hierarchy
-There are three components in app:
+There are four components in app:
 1. SearchComponent -  Receive user input as search text
 2. BookListComponent - Dispaly data collection based on user input and search API result
-3. DetailBookComponent - Dispaly selected book detail view with ratings, description,etc
+3. BookListItemComponent - Display single item of data collection
+4. DetailBookComponent - Dispaly selected book detail view with ratings, description,etc
+. 
 
 # Future Implementation:
 I want to add below things in the future version:

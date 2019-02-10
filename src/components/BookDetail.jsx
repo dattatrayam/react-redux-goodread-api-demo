@@ -18,7 +18,7 @@ class BookDetail extends Component {
 				  />
 			 </div>
 			 <div>
-				<h3 className="mb-3 mt-3">{this.props.bookData.best_book.title}</h3>
+				<h3 className="mb-3 mt-3 word-wrap:break-word;">{this.props.bookData.best_book.title}</h3>
 				 <p className="mb-3 mt-3">
 					By:{" "}
 					<span className="font-weight-bold">
