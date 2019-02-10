@@ -3,29 +3,39 @@ import * as types from "../constants/action-types";
 const initialState = {
   searching: false,
   searchResult:null,
-  selectedBook:undefined,
- };
+  selectedBookDetail:null,
+  fetchingBookDetail:false
+  };
 
 function rootReducer(state = initialState, action) {
   if (action.type === types.SEARCH_STARTED) {
-    console.log("SEARCH_STARTED REDUCER:")
     return Object.assign({}, state, {
         searching:true,
-        searchResult:null
+        searchResult:null,
+        selectedBookDetail:null
     });
   }
   else if (action.type === types.SEARCH_DATA_LOADED) {
-    console.log("SEARCH_DATA_LOADED REDUCER:")
     return Object.assign({}, state, {
-      //searchResult: state.searchResult.concat(arrayToObject(action.playload)),
       searchResult: arrayToObject(action.playload),
       searching:false
    });
   }
   else if (action.type === types.SHOW_BOOK_DETAIL) {
-    console.log("SHOW_BOOK_DETAIL REDUCER:")
     return Object.assign({}, state, {
-      selectedBook: action.playload
+      selectedBookDetail: action.searchResult[action.playload]
+    });
+  }
+  else if (action.type === types.FETCHING_BOOK_DATA) {
+    return Object.assign({}, state, {
+      fetchingBookDetail: true
+    });
+  }
+  else if (action.type === types.BOOK_DATA_LOADED) {
+    return Object.assign({}, state, {
+      fetchingBookDetail: false,
+      searchResult: action.searchResult,
+      selectedBookDetail: action.searchResult[action.playload]
     });
   }
   
@@ -34,10 +44,11 @@ function rootReducer(state = initialState, action) {
 
 const arrayToObject = (array) =>
    array.reduce((obj, item) => {
-     obj[item.best_book.id] = item
+     obj[item.id] = item
      return obj
  }, {})
 
+ 
 
 
 export default rootReducer;

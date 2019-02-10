@@ -12,10 +12,11 @@ class BookList extends Component {
       return (<div></div>)
     }
     const data = this.props.searchResult;
+    console.log("data:"+data);
     const display = Object.keys(data).map(key => (
       <BookListItemComponent details={data[key]} />
     ));
-    return (<div>{display}</div>)
+    return (<div className="col-xs-3 booklist">{display}</div>)
   }
 }
 

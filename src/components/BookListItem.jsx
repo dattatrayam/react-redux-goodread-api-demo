@@ -8,10 +8,10 @@ class BookListItem extends Component {
        console.log("selected Id:"+details.id)
        return (
         <li className="list-group-item" key={details.id}
-        onClick={() => this.props.showSelectedBookDetail(details)}
+        onClick={() => this.props.showSelectedBookDetail(details.id)}
         >
          <p
-            className="font-weight-bold"
+            className="text-sm-left card-title font-weight-bold"
             title={details.best_book.title}
           >
             {details.best_book.title}
@@ -24,7 +24,7 @@ class BookListItem extends Component {
 
  function mapDispatchToProps(dispatch) {
   return {
-    showSelectedBookDetail: bookData => dispatch(showSelectedBookDetail(bookData))
+    showSelectedBookDetail: bookId => dispatch(showSelectedBookDetail(bookId))
   };
 
 }

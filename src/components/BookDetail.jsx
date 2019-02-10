@@ -8,7 +8,7 @@ class BookDetail extends Component {
                 return (<div></div>)
         }
 		return (
-			<div>
+			<div className="col-xs-3 detailInfo">
 				<div>
 				  <img
 					src={this.props.bookData.best_book.image_url}
@@ -18,7 +18,7 @@ class BookDetail extends Component {
 				  />
 			 </div>
 			 <div>
-				<h3 className="mb-3 mt-3 word-wrap:break-word;">{this.props.bookData.best_book.title}</h3>
+				<h3 className="mb-3 mt-3 ">{this.props.bookData.best_book.title}</h3>
 				 <p className="mb-3 mt-3">
 					By:{" "}
 					<span className="font-weight-bold">
@@ -45,6 +45,13 @@ class BookDetail extends Component {
 					  Rating Details: {this.props.bookData.ratings_count} Ratings , {this.props.bookData.text_reviews_count} Reviews 
 					</span>
 				 </div>
+				  <div>
+							{(this.props.fetchingBookDetail && (
+						<p className="text-danger">loading..</p>
+						)) || (
+						<p className="mb-3 mt-3" dangerouslySetInnerHTML={{ __html: this.props.bookData.description }} />
+						)}
+					</div>
 				</div>
 			 </div>
 		 </div>
@@ -55,7 +62,8 @@ class BookDetail extends Component {
 
 function mapStateToProps(state) {
   return {
-    bookData: state.selectedBook
+		bookData: state.selectedBookDetail,
+		fetchingBookDetail: state.fetchingBookDetail
   };
 }
 

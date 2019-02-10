@@ -29,7 +29,7 @@ render() {
   return (
       <div className="form-group row">
 			  <input
-				className="form-control"
+				className="mr-2 form-control col-sm-9"
 				type="text"
 				placeholder="Search Books by name"
 				name="searchText"
@@ -38,8 +38,8 @@ render() {
         onChange={this.handleChange}
 			  />
 			  <button
-				id="searchBtn" type="submit"
-         className="btn btn-success btn-lg"
+				id="searchBtn"
+         className="btn btn-primary btn-lg col-sm-2"
          onClick= {this.handleSubmit}
          >
 				Search

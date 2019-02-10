@@ -4,7 +4,7 @@ import Axios from "axios";
 const goodReadApiKey = '1QuOnDaZDKNfSKf09AjA';
 const CORS_ENDPOINT_HEROKU = 'https://cors-anywhere.herokuapp.com/';
 const GOODREAD_SEARCH_ENDPOINT = 'https://www.goodreads.com/search/index.xml';
-//const GOODREAD_SHOW_BOOK_ENDPOINT = 'https://www.goodreads.com/book/show/';
+const GOODREAD_SHOW_BOOK_ENDPOINT = 'https://www.goodreads.com/book/show/';
 
 
 export function emptySearch() {
@@ -27,16 +27,35 @@ export function startSearch(playload) {
 }
 
 export function showSelectedBookDetail(playload) {
-  return { type: types.SHOW_BOOK_DETAIL,playload };
+  return function(dispatch,getState) {
+    const {searchResult} = getState();
+    dispatch( {type: types.SHOW_BOOK_DETAIL,searchResult:searchResult, playload })
+    //if description not found in book object get book data
+    let selectedItem = searchResult[playload];
+    if(!selectedItem.description) {
+      dispatch({type: types.FETCHING_BOOK_DATA,playload})
+      const url = `${CORS_ENDPOINT_HEROKU+GOODREAD_SHOW_BOOK_ENDPOINT}${playload}?key=${goodReadApiKey}`;
+		  return Axios.get(url)
+      .then(response => getBookDescription(response.data))
+      .then(res => {
+          searchResult[playload].description =res;
+          dispatch( {type: types.BOOK_DATA_LOADED,searchResult:searchResult, description:res,playload })
+      });
+    }
+        
+  };
+ 
 }
-export function getBookData(playload) {
-  return { type: types.FETCH_BOOK_DATA,playload };
-}
-export function bookDataLoaded(playload) {
-  return { type: types.BOOK_DATA_LOADED,playload };
-}
-export function addArticle(payload) {
-  return { type: types.ADD_ARTICLE, payload };
+
+export function getBookDescription(response) {
+  const parser = new DOMParser();
+  const XMLResponse = parser.parseFromString(response, "application/xml");
+  let description = XMLResponse.getElementsByTagName("description")[0].innerHTML;
+  description = description.replace("<![CDATA[", "").replace("]]>", "");
+  if (!description) {
+  description = "No description found.";
+  }
+  return description;
 }
 
 export function parseXMLResponse (response) {

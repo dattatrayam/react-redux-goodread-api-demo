@@ -45,3 +45,4 @@ I want to add below things in the future version:
 1. Add Redux-Saga middleware for asynchronous actions
 2. Refactoring of Reducer and create reducer for each UI component and use combinedreducer to use them
 3. Add UI test cases
+4. Network error handling 
