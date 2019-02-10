@@ -1,4 +1,4 @@
-# **React-Redux-Redux-ThBook-Search Demo**
+# **React-Redux-Redux-Thunk GoodReads API Book-Search Demo**
 
 This application is developed using React and Redux together. 
 Redux Thunk middleware is used for asynchronous actions to call goodreads remote API.
