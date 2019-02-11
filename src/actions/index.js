@@ -6,7 +6,6 @@ const CORS_ENDPOINT_HEROKU = 'https://cors-anywhere.herokuapp.com/';
 const GOODREAD_SEARCH_ENDPOINT = 'https://www.goodreads.com/search/index.xml';
 const GOODREAD_SHOW_BOOK_ENDPOINT = 'https://www.goodreads.com/book/show/';
 
-
 export function emptySearch() {
   return { type: types.FOUND_EMPTY_TEXT };
 }
@@ -47,6 +46,7 @@ export function showSelectedBookDetail(playload) {
  
 }
 
+//get book description from response
 export function getBookDescription(response) {
   const parser = new DOMParser();
   const XMLResponse = parser.parseFromString(response, "application/xml");
@@ -58,8 +58,8 @@ export function getBookDescription(response) {
   return description;
 }
 
+//utility functions to parse XML data and get JSON Object
 export function parseXMLResponse (response) {
-  console.log("response:"+response)
   const parser = new DOMParser();
   const XMLResponse = parser.parseFromString(response, "application/xml");
   const parseError = XMLResponse.getElementsByTagName("parsererror");

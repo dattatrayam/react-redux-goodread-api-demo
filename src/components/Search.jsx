@@ -22,7 +22,6 @@ class Search extends Component {
     this.props.initSearch({ searchText });
   }
 
- 
   
 render() {
   const { searchText } = this.state;

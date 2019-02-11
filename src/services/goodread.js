@@ -1,4 +1,4 @@
-import Axios from "axios";
+/*import Axios from "axios";
 import _ from 'lodash';
 import { SEARCH_DATA_LOADED, BOOK_DATA_LOADED,SEARCH_ERROR} from "../constants/action-types"
 
@@ -34,7 +34,7 @@ const GOODREAD_SHOW_BOOK_ENDPOINT = 'https://www.goodreads.com/book/show/';
 		  })
 		  .catch(error => {
         throw new Error(`GoodReadService : There was an error fetching results.`);
-		  });*/
+		  });
   }
 
   export default function getBookDetailInfo(bookId) {
@@ -97,3 +97,4 @@ const GOODREAD_SHOW_BOOK_ENDPOINT = 'https://www.goodreads.com/book/show/';
 	
 export default getSearchResult;
 export default getBookDetailInfo;
+*/

@@ -41,7 +41,7 @@ function rootReducer(state = initialState, action) {
   
   return state;
 }
-
+//utilty functios to convert array of objects into hash based JSON object
 const arrayToObject = (array) =>
    array.reduce((obj, item) => {
      obj[item.id] = item
